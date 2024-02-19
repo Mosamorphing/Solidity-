@@ -32,6 +32,18 @@ contract MyContract {
      }
 }
 
-// you can also use a 1 liner method to check if it is  true or false by using the constructo
+// you can also use a 1 liner method to check if it is  true or false by using the constructor and owner variables
+
+//add this after uint public numbers
+    address public owner; 
+
+    constructor() {
+        owner = msg.sender;
+    }
+
+// add this as the last thing
+     function isOwner() public view returns (bool) {
+        return (msg.sender == owner);
+     }
 
 
